@@ -28,7 +28,7 @@ public class Main {
                 }
             }
             maxSumIncreasingSub=Math.max(maxSumIncreasingSub,dp[i]);
-            System.out.println(maxSumIncreasingSub);
+            //System.out.println(dp[i]);
         }
 
         System.out.println(maxSumIncreasingSub);
