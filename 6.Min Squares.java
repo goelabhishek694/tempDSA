@@ -5,22 +5,25 @@ public class Main {
 
 	public static int solution(int n){
 		//write your code here
-        int root=(int)Math.floor(Math.pow(n,0.5));
-        //System.out.println(root);
         int count=0;
-		int[] dp=new int[root];
-		for(int i=0;i<root;i++){
-			dp[i]=(i+1)*(i+1);
-		}
-		for(int i=root-1;i>=0;i--){
-			if(n-dp[i]>=0){
-			    n=n-dp[i];
-				count++;
-				i++;
+		
+		int[] dp=new int[n+1];
+		dp[0]=0;
+		for(int i=1;i<=n;i++){
+			int num=1;
+			int minCount=Integer.MAX_VALUE;
+			while(num*num<=i){
+				int sub=i-num*num;
+				minCount=Math.min(minCount,dp[sub]+1);
+				num++;
 			}
-			if(n==0) return count;
+			dp[i]=minCount;
+
 		}
-		return n;
+
+		return dp[n];
+
+		
 	}
     
 
